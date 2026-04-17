@@ -1,5 +1,7 @@
 PalmSynth
 PalmSynth is a gesture-based audio controller inspired by the BMW iDrive AirGesture system. It translates real-time hand geometry into tactile sound manipulation, allowing for a "touchless" mixing experience. While currently a functional demo, it establishes a high-fidelity bridge between computer vision and digital signal processing.
+<img width="1920" height="1080" alt="Screenshot 2026-04-17 131205" src="https://github.com/user-attachments/assets/374308c5-7e0b-460f-a82b-1dc2ba0c393d" />
+
 
 Core Functionality
 Dual-Hand Vision Integration: Utilizes the MediaPipe framework to track 21 hand landmarks at sub-millisecond latency.
