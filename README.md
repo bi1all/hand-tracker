@@ -1,5 +1,6 @@
 PalmSynth
 PalmSynth is a gesture-based audio controller inspired by the BMW iDrive AirGesture system. It translates real-time hand geometry into tactile sound manipulation, allowing for a "touchless" mixing experience. While currently a functional demo, it establishes a high-fidelity bridge between computer vision and digital signal processing.
+
 <img width="1920" height="1080" alt="Screenshot 2026-04-17 131205" src="https://github.com/user-attachments/assets/374308c5-7e0b-460f-a82b-1dc2ba0c393d" />
 
 
@@ -31,14 +32,7 @@ Open your terminal and run:
 Bash
 pip install mediapipe==0.10.9 opencv-python numpy pygame pydub
 3. Clone and Upload to GitHub
-If you are adding this to your repository:
 
-Bash
-git add palmsynth.py
-git commit -m "Add PalmSynth module"
-git push origin main
-How to Use
-Run the script: python palmsynth.py
 
 Load Music: Press 'O' on your keyboard to open the file picker and select an MP3.
 
@@ -71,5 +65,5 @@ Lux Dependency: Tracking stability decreases in low-light environments.
 Occlusion: Extreme wrist angles may lead to landmark dropouts.
 
 Author: Bilal
-
-Inspiration: Momin (Logic & Concept ported to Windows)
+[Inspiration: Momin (Logic & Concept ported to Windows)](https://github.com/mominwaleed9089/PalmSynth#)
+Concept: Original macOS logic by Momin; rebuilt for Windows architecture.
