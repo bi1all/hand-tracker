@@ -71,3 +71,5 @@ Lux Dependency: Tracking stability decreases in low-light environments.
 Occlusion: Extreme wrist angles may lead to landmark dropouts.
 
 Author: Bilal
+
+Inspiration: Momin (Logic & Concept ported to Windows)
