@@ -1,39 +1,71 @@
-# hand-tracker
-Built a hand tracking thing that reads your fingers through a webcam and controls your music.
-Palm Synth is a high-fidelity spatial audio controller that transforms the human hand into a dynamic MIDI-equivalent interface. By leveraging Google’s MediaPipe landmarking and OpenCV, the system strips away the physical environment to render a clean, holographic skeletal overlay against a pure black void, ensuring total user privacy while maintaining a "vanish but be noticed" aesthetic. This module enables tactile manipulation of sound through precise gestural mapping: the left hand functions as a master volume fader via pinch-distance calculation, while the right hand operates as a real-time bass EQ and filter sweep. Engineered for Windows with a Python-based audio engine powered by Pygame and Pydub, Palm Synth merges computer vision with live signal processing to create a seamless, air-gap performance tool where every micro-movement of the fingers translates into immediate acoustic sculpture.
-(How to Run It)
-Paste this into your README.md file. It explains the requirements and the controls to anyone looking at your repo.
+PalmSynth
+PalmSynth is a gesture-based audio controller inspired by the BMW iDrive AirGesture system. It translates real-time hand geometry into tactile sound manipulation, allowing for a "touchless" mixing experience. While currently a functional demo, it establishes a high-fidelity bridge between computer vision and digital signal processing.
 
-Markdown
-### Setup & Installation
-1. **Python 3.11** is required.
-2. **FFmpeg**: Must be installed and added to your System PATH to process MP3 files.
-3. **Dependencies**:
-   ```bash
-   pip install mediapipe==0.10.9 opencv-python numpy pygame pydub
-Operational Controls
-O Key: Open file explorer to load an MP3.
+Core Functionality
+Dual-Hand Vision Integration: Utilizes the MediaPipe framework to track 21 hand landmarks at sub-millisecond latency.
 
-Space: Play / Pause toggle.
+Dynamic Parameter Mapping:
 
-Left Hand Pinch: Dynamic Volume control.
+Left Hand: Euclidean distance between index and thumb mapped to Master Gain.
 
-Right Hand Pinch: Bass EQ / Filter control.
+Right Hand: Pinch distance mapped to a Low-Shelf EQ (Bass) for real-time frequency sculpting.
 
-Q Key: Safe exit and release webcam.
+Privacy-First Aesthetic: Renders a high-contrast skeletal overlay on a pure black void, completely isolating the user's environment and face from the display.
 
+Setup & Installation
+To run this on Windows, you must have Python 3.11 installed. Follow these steps exactly:
 
----
+1. Install FFmpeg (Required for MP3 processing)
 
-### 2. The Commands (How to Upload)
-Run these in your command prompt while inside your project folder to push the new file to your GitHub:
+Download the "essentials" build from gyan.dev.
 
-```bash
+Extract the folder and copy the path to the bin folder.
+
+Add this path to your System Environment Variables.
+
+2. Install Dependencies
+Open your terminal and run:
+
+Bash
+pip install mediapipe==0.10.9 opencv-python numpy pygame pydub
+3. Clone and Upload to GitHub
+If you are adding this to your repository:
+
+Bash
 git add palmsynth.py
-git commit -m "Add palm synth module and privacy-mode rendering"
+git commit -m "Add PalmSynth module"
 git push origin main
-3. Verification
-Before you close the terminal, run the script one last time to ensure the environment is stable:
-python palmsynth.py
+How to Use
+Run the script: python palmsynth.py
 
-If the window opens and the background is pure black while tracking your hands, the build is complete. No further configuration is required.
+Load Music: Press 'O' on your keyboard to open the file picker and select an MP3.
+
+Control Audio:
+
+Spacebar: Play/Pause.
+
+Left Hand Pinch: Close your thumb and index finger to lower volume; open them to increase it.
+
+Right Hand Pinch: Close your thumb and index finger to pull back the Bass; open them to boost it.
+
+Release: When you let go of the pinch, the setting stays locked at that level.
+
+Exit: Press 'Q' to close the app.
+
+Technical Architecture
+The system runs on a Python-based signal chain:
+
+Input: OpenCV captures the raw feed, processed by MediaPipe for landmark detection.
+
+Logic: Coordinate normalization and hysteresis loops prevent jitter, ensuring smooth transitions.
+
+Audio Engine: Powered by pydub and pygame.mixer, utilizing FFmpeg for high-fidelity decoding.
+
+Known Limitations
+Hand Swapping: Rapid crossing of hands may briefly invert control assignments.
+
+Lux Dependency: Tracking stability decreases in low-light environments.
+
+Occlusion: Extreme wrist angles may lead to landmark dropouts.
+
+Author: Bilal
